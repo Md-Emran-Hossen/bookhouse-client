@@ -1,22 +1,22 @@
 import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { AuthContext } from "../authProvider/AuthProvider";
+// import { AuthContext } from "../authProvider/AuthProvider";
 import logo from "../assets/logo.png";
 
 
 const Navbar = () => {
 
-    const { user, logOut } = useContext(AuthContext);
-    const navigate = useNavigate();
-    const handleSignOut = () => {
-        logOut()
-            .then(() => {
-                navigate("/login");
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }
+    // const { user, logOut } = useContext(AuthContext);
+    // const navigate = useNavigate();
+    // const handleSignOut = () => {
+    //     logOut()
+    //         .then(() => {
+    //             navigate("/login");
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         })
+    // }
 
     const navLink = (
         <>
@@ -71,22 +71,7 @@ const Navbar = () => {
 
                     <div className="flex justify-start md:justify-end lg:justify-end ml-2 pl-2">
                         {
-                            user ? (
-                                <div className="flex items-center space-x-2">
-                                    <span className="text-sm">{user.email}</span>
-                                    <img src={user?.photoURL} className="w-7 rounded-full"></img>
-                                    <Link to="/login">
-                                        <button onClick={handleSignOut} className="btn btn-active text-sm"> Logout </button>
-                                    </Link>
-                                </div>
-
-                            ) : (
-                                <div>
-                                    <Link to="/login">
-                                        <button className="btn btn-active">Login</button>
-                                    </Link>
-                                </div>
-                            )
+                            
                         }
                     </div>
                 </div>
